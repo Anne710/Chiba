@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ちば内科クリニック | 釧路市大楽毛</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Design Tokens
+    ============================================================ */
+    :root {
+      --main-green:   #2f6b3f;
+      --soft-green:   #eaf3e7;
+      --light-green:  #f5faf3;
+      --accent-green: #7fa36b;
+      --text-main:    #243326;
+      --text-sub:     #5f6f61;
+      --line-beige:   #d8c8a3;
+      --white:        #ffffff;
+      --cream:        #fbfaf5;
+      --red-closed:   #c0392b;
+      --shadow-sm:    0 2px 8px rgba(47,107,63,0.08);
+      --shadow-md:    0 4px 16px rgba(47,107,63,0.12);
+      --radius:       10px;
+      --max-width:    1140px;
+    }
+
+    /* ============================================================
+       Reset & Base
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-main);
+      background: var(--white);
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .section { padding: 80px 0; }
+    .section--cream { background: var(--cream); }
+    .section--soft  { background: var(--soft-green); }
+    .section--light { background: var(--light-green); }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-green);
+      margin-bottom: 8px;
+    }
+    .section-heading {
+      font-family: "Noto Serif JP", serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--main-green);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+    .section-heading--center { text-align: center; }
+    .section-eyebrow--center { text-align: center; }
+
+    /* ============================================================
+       Header
+    ============================================================ */
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid var(--line-beige);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo__mark {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+    }
+    .logo__text {}
+    .logo__name {
+      font-family: "Noto Serif JP", serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--main-green);
+      line-height: 1.3;
+      letter-spacing: 0.03em;
+    }
+    .logo__dept {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--accent-green);
+      padding: 2px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Header contact info */
+    .header__contact {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .header__address {
+      font-size: 12px;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .header__phone-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header__phone-label {
+      font-size: 11px;
+      color: var(--text-sub);
+      font-weight: 500;
+    }
+    .header__phone {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--main-green);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ============================================================
+       Global Navigation
+    ============================================================ */
+    .gnav {
+      background: var(--white);
+      border-bottom: 2px solid var(--soft-green);
+    }
+    .gnav__list {
+      display: flex;
+      align-items: stretch;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .gnav__item {
+      position: relative;
+    }
+    .gnav__item + .gnav__item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 16px;
+      width: 1px;
+      background: var(--line-beige);
+    }
+    .gnav__link {
+      display: flex;
+      align-items: center;
+      padding: 15px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+      white-space: nowrap;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .gnav__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 22px;
+      right: 22px;
+      height: 2px;
+      background: var(--main-green);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .gnav__link:hover { color: var(--main-green); }
+    .gnav__link:hover::after { transform: scaleX(1); }
+    .gnav__link--active {
+      color: var(--main-green);
+      font-weight: 700;
+    }
+    .gnav__link--active::after { transform: scaleX(1); }
+
+    /* ============================================================
+       Hero / First View
+    ============================================================ */
+    .hero {
+      display: flex;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .hero__left {
+      flex: 0 0 40%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--light-green);
+    }
+    .hero__bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.22;
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(245,250,243,0.5) 0%, rgba(234,243,231,0.3) 100%);
+    }
+    .hero__left-content {
+      position: relative;
+      z-index: 1;
+      padding: 56px 48px 56px 56px;
+      width: 100%;
+    }
+    .hero__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--accent-green);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .hero__heading {
+      font-family: "Noto Serif JP", serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--main-green);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .hero__heading em {
+      font-style: normal;
+      font-size: 32px;
+    }
+    .hero__sub {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+
+    /* Feature icons in hero */
+    .hero__features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero__feature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.82);
+      border-radius: 8px;
+      padding: 10px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero__feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--soft-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero__feature-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .hero__right {
+      flex: 0 0 60%;
+      overflow: hidden;
+    }
+    .hero__right-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      min-height: 520px;
+    }
+
+    /* ============================================================
+       About / Clinic Introduction + Doctor
+    ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: start;
+    }
+    .about__text p {
+      font-size: 15px;
+      line-height: 2;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+    .about__text p:last-child { margin-bottom: 0; }
+
+    /* Doctor Card */
+    .doctor-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .doctor-card__img-wrap {
+      overflow: hidden;
+      height: 270px;
+    }
+    .doctor-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .doctor-card__body {
+      padding: 24px 28px 28px;
+    }
+    .doctor-card__role {
+      font-size: 12px;
+      color: var(--text-sub);
+      font-weight: 500;
+      margin-bottom: 3px;
+      letter-spacing: 0.04em;
+    }
+    .doctor-card__name {
+      font-family: "Noto Serif JP", serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--main-green);
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line-beige);
+    }
+    .doctor-card__career-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-green);
+      margin-bottom: 8px;
+    }
+    .doctor-card__career {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.85;
+      margin-bottom: 20px;
+      padding-left: 14px;
+      border-left: 3px solid var(--accent-green);
+    }
+    .doctor-card__comment {
+      background: var(--soft-green);
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-size: 14px;
+      color: var(--text-main);
+      line-height: 1.8;
+      position: relative;
+    }
+    .doctor-card__comment-mark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 36px;
+      color: var(--accent-green);
+      line-height: 0.7;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* ============================================================
+       Features Section
+    ============================================================ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(127,163,107,0.15);
+    }
+    .feature-card__icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: var(--soft-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .feature-card__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--main-green);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .feature-card__desc {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       Schedule + Access + Map (3-card grid)
+    ============================================================ */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .info-card__head {
+      background: var(--main-green);
+      color: var(--white);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .info-card__head-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .info-card__body {
+      padding: 22px;
+      flex: 1;
+    }
+
+    /* Schedule Table */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .schedule-table th,
+    .schedule-table td {
+      text-align: center;
+      padding: 8px 4px;
+      border-bottom: 1px solid var(--line-beige);
+    }
+    .schedule-table thead th {
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--main-green);
+      background: var(--light-green);
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    .schedule-table tbody td:first-child {
+      text-align: left;
+      font-size: 11px;
+      color: var(--text-sub);
+      padding-left: 2px;
+      white-space: nowrap;
+    }
+    .circle { color: var(--main-green); font-weight: 700; font-size: 15px; }
+    .dash   { color: #ccc; }
+    .note-mark { color: var(--accent-green); font-weight: 700; font-size: 13px; }
+
+    .schedule-notes {
+      font-size: 11px;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .schedule-closed {
+      display: inline-block;
+      background: #fdf0ef;
+      color: var(--red-closed);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border-left: 3px solid var(--red-closed);
+    }
+
+    /* Access Card */
+    .access-stop-badge {
+      background: var(--soft-green);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+    }
+    .access-stop-badge__name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--main-green);
+      margin-bottom: 2px;
+    }
+    .access-stop-badge__bus {
+      font-size: 12px;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .access-walk {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .access-walk__arrow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+    }
+    .access-walk__line {
+      flex: 1;
+      height: 2px;
+      background: var(--line-beige);
+      position: relative;
+    }
+    .access-walk__line::after {
+      content: "▶";
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 8px;
+      color: var(--line-beige);
+    }
+    .access-mins-big {
+      text-align: center;
+      padding: 8px 0;
+    }
+    .access-mins-big__num {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--main-green);
+      line-height: 1;
+      display: block;
+    }
+    .access-mins-big__unit {
+      font-size: 14px;
+      color: var(--text-sub);
+      font-weight: 500;
+    }
+    .access-address {
+      font-size: 13px;
+      color: var(--text-sub);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-beige);
+    }
+
+    /* Map Card */
+    .map-img-wrap {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+    }
+    .map-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .map-note {
+      font-size: 11px;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-top: 10px;
+    }
+
+    /* ============================================================
+       Home Visit Section
+    ============================================================ */
+    .homevisit {
+      background: var(--main-green);
+      padding: 64px 0;
+    }
+    .homevisit__inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .homevisit__icon-wrap {
+      flex-shrink: 0;
+      width: 88px;
+      height: 88px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .homevisit__body {
+      flex: 1;
+      color: var(--white);
+    }
+    .homevisit__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      opacity: 0.75;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .homevisit__heading {
+      font-family: "Noto Serif JP", serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .homevisit__desc {
+      font-size: 15px;
+      opacity: 0.88;
+      line-height: 1.85;
+      max-width: 600px;
+    }
+    .homevisit__cta {
+      flex-shrink: 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 30px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, background 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .btn--white-outline {
+      border: 2px solid rgba(255,255,255,0.85);
+      color: var(--white);
+      background: transparent;
+    }
+    .btn--white-outline:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* ============================================================
+       Footer
+    ============================================================ */
+    .footer {
+      background: #1b4228;
+      color: rgba(255,255,255,0.8);
+      padding: 52px 0 28px;
+    }
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer__clinic-name {
+      font-family: "Noto Serif JP", serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .footer__dept {
+      font-size: 12px;
+      opacity: 0.65;
+      margin-bottom: 20px;
+    }
+    .footer__contact-phone {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+    .footer__contact-label {
+      font-size: 11px;
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+    .footer__info {
+      font-size: 13px;
+      line-height: 2.1;
+      opacity: 0.85;
+    }
+    .footer__info strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      font-size: 11px;
+      opacity: 0.45;
+    }
+
+    /* ============================================================
+       Responsive – Mobile (≤768px)
+    ============================================================ */
+    @media (max-width: 768px) {
+      .container { padding: 0 18px; }
+      .section { padding: 52px 0; }
+
+      /* Header */
+      .header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .header__contact {
+        width: 100%;
+        align-items: flex-start;
+      }
+      .header__phone {
+        font-size: 22px;
+      }
+
+      /* Nav */
+      .gnav__list {
+        flex-wrap: wrap;
+        padding: 0 18px;
+      }
+      .gnav__link {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+      .gnav__item + .gnav__item::before { display: none; }
+
+      /* Hero – mobile layout */
+      .hero {
+        flex-direction: column;
+        min-height: unset;
+      }
+      .hero__right {
+        order: -1;
+        flex: none;
+        width: 100%;
+      }
+      .hero__right-img {
+        min-height: 220px;
+        height: 52vw;
+        max-height: 300px;
+      }
+      .hero__left {
+        flex: none;
+        width: 100%;
+      }
+      .hero__left-content {
+        padding: 36px 18px;
+      }
+      .hero__heading {
+        font-size: 22px;
+      }
+      .hero__heading em {
+        font-size: 24px;
+      }
+      .hero__sub { margin-bottom: 28px; }
+
+      /* About */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      /* Features */
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 36px;
+      }
+      .feature-card {
+        text-align: left;
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 22px 20px;
+      }
+      .feature-card__icon-wrap {
+        flex-shrink: 0;
+        margin: 0;
+        width: 56px;
+        height: 56px;
+      }
+      .feature-card__body {}
+
+      /* Info cards */
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      /* Home visit */
+      .homevisit__inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+      .homevisit__desc { max-width: 100%; }
+
+      /* Footer */
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer__bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      /* Section headings */
+      .section-heading { font-size: 22px; }
+    }
+
+    @media (max-width: 480px) {
+      .gnav__list { display: grid; grid-template-columns: 1fr 1fr; }
+      .gnav__item + .gnav__item::before { display: none; }
+      .access-mins-big__num { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     Header
+============================================================ -->
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+
+      <!-- Logo -->
+      <div class="logo">
+        <svg class="logo__mark" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="26" cy="26" r="26" fill="#eaf3e7"/>
+          <!-- Leaf -->
+          <path d="M26 10 C26 10 14 18 14 27 C14 34 19.5 39 26 39 C32.5 39 38 34 38 27 C38 18 26 10 26 10Z" fill="#2f6b3f" opacity="0.18"/>
+          <!-- Cross -->
+          <rect x="22" y="17" width="8" height="18" rx="2" fill="#2f6b3f"/>
+          <rect x="17" y="22" width="18" height="8" rx="2" fill="#2f6b3f"/>
+        </svg>
+        <div class="logo__text">
+          <div class="logo__name">ちば内科クリニック</div>
+          <span class="logo__dept">内 科</span>
+        </div>
+      </div>
+
+      <!-- Contact info -->
+      <div class="header__contact">
+        <div class="header__address">
+          <svg width="12" height="13" viewBox="0 0 12 13" fill="none" aria-hidden="true">
+            <path d="M6 1C4.07 1 2.5 2.57 2.5 4.5C2.5 7.25 6 12 6 12C6 12 9.5 7.25 9.5 4.5C9.5 2.57 7.93 1 6 1ZM6 5.75C5.31 5.75 4.75 5.19 4.75 4.5C4.75 3.81 5.31 3.25 6 3.25C6.69 3.25 7.25 3.81 7.25 4.5C7.25 5.19 6.69 5.75 6 5.75Z" fill="#7fa36b"/>
+          </svg>
+          釧路市大楽毛2丁目2-27
+        </div>
+        <div class="header__phone-wrap">
+          <span class="header__phone-label">電話でのご予約・お問い合わせ</span>
+        </div>
+        <a href="tel:0154646650" class="header__phone">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4.5 2.5C4.5 2.5 2 2.5 2 5C2 12.18 7.82 18 15 18C17.5 18 17.5 15.5 17.5 15.5L14.5 12.5C14.5 12.5 13.5 13.5 12 12C10.5 10.5 9.5 9 9.5 9C8 7.5 9 6.5 9 6.5L6 3.5L4.5 2.5Z" fill="#2f6b3f"/>
+          </svg>
+          0154-64-6650
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     Global Navigation
+============================================================ -->
+<nav class="gnav" aria-label="メインメニュー">
+  <ul class="gnav__list">
+    <li class="gnav__item"><a href="#" class="gnav__link gnav__link--active">ホーム</a></li>
+    <li class="gnav__item"><a href="#about" class="gnav__link">当院のご案内</a></li>
+    <li class="gnav__item"><a href="#features" class="gnav__link">診療内容</a></li>
+    <li class="gnav__item"><a href="#schedule" class="gnav__link">診療時間・アクセス</a></li>
+    <li class="gnav__item"><a href="#homevisit" class="gnav__link">訪問診療</a></li>
+    <li class="gnav__item"><a href="#" class="gnav__link">お知らせ</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     Hero / First View
+============================================================ -->
+<section class="hero" aria-label="ファーストビュー">
+
+  <!-- Left: catchcopy + features -->
+  <div class="hero__left">
+    <img
+      class="hero__bg-img"
+      src="https://raw.githubusercontent.com/Anne710/Chiba/11572419a915b695cc25b3998c387d3085215669/chiba-clinic-design-package/assets/images/green-blur-bg.jpg"
+      alt=""
+      aria-hidden="true"
+    >
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__left-content">
+      <p class="hero__eyebrow">釧路市大楽毛 ／ 内科クリニック</p>
+      <h1 class="hero__heading">
+        家族で通院できる<br>
+        <em>"かかりつけ医"</em><br>
+        訪問診療にも対応する<br>頼れる存在
+      </h1>
+      <p class="hero__sub">大楽毛地区を中心に、子どもから高齢の方まで<br>地域の皆さまの健康をサポートします。</p>
+
+      <div class="hero__features">
+
+        <div class="hero__feature">
+          <div class="hero__feature-icon">
+            <!-- Family icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="9" cy="5.5" r="2.5" fill="#2f6b3f"/>
+              <circle cx="17" cy="6.5" r="2" fill="#7fa36b"/>
+              <circle cx="5" cy="8" r="1.5" fill="#7fa36b" opacity="0.7"/>
+              <path d="M5 20v-4a4 4 0 018 0v4" stroke="#2f6b3f" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+              <path d="M15 20v-3a3 3 0 016 0v3" stroke="#7fa36b" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <path d="M2 20v-2.5a2.5 2.5 0 015 0V20" stroke="#7fa36b" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.7"/>
+            </svg>
+          </div>
+          <span class="hero__feature-text">家族みんなの健康をサポート</span>
+        </div>
+
+        <div class="hero__feature">
+          <div class="hero__feature-icon">
+            <!-- Stethoscope icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 4v7a5 5 0 005 5v0a5 5 0 005-5V4" stroke="#2f6b3f" stroke-width="1.7" stroke-linecap="round" fill="none"/>
+              <circle cx="17" cy="18" r="3" stroke="#2f6b3f" stroke-width="1.7" fill="none"/>
+              <circle cx="7" cy="4" r="1" fill="#2f6b3f"/>
+              <circle cx="17" cy="4" r="1" fill="#2f6b3f"/>
+              <circle cx="17" cy="18" r="1.2" fill="#2f6b3f"/>
+            </svg>
+          </div>
+          <span class="hero__feature-text">内科全般に幅広く対応</span>
+        </div>
+
+        <div class="hero__feature">
+          <div class="hero__feature-icon">
+            <!-- Home + cross icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 12L12 4l9 8" stroke="#2f6b3f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9" stroke="#2f6b3f" stroke-width="1.5" fill="none"/>
+              <rect x="10" y="6" width="4" height="4" rx="0.5" fill="#7fa36b" opacity="0.8"/>
+              <rect x="11.2" y="4.8" width="1.6" height="6.4" rx="0.4" fill="#2f6b3f"/>
+              <rect x="8.8" y="7.2" width="6.4" height="1.6" rx="0.4" fill="#2f6b3f"/>
+            </svg>
+          </div>
+          <span class="hero__feature-text">訪問診療にも積極的に対応</span>
+        </div>
+
+      </div><!-- /.hero__features -->
+    </div>
+  </div><!-- /.hero__left -->
+
+  <!-- Right: clinic exterior image -->
+  <div class="hero__right">
+    <img
+      class="hero__right-img"
+      src="https://raw.githubusercontent.com/Anne710/Chiba/11572419a915b695cc25b3998c387d3085215669/chiba-clinic-design-package/assets/images/hero-clinic.jpg"
+      alt="ちば内科クリニック外観"
+    >
+  </div>
+
+</section>
+
+<!-- ============================================================
+     About: Clinic Introduction + Doctor Card
+============================================================ -->
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="about-grid">
+
+      <!-- Left: Clinic intro text -->
+      <div class="about__text">
+        <p class="section-eyebrow">当院のご案内</p>
+        <h2 class="section-heading">地域に根ざし、<br>つながりを大切にした医療を</h2>
+
+        <p>大楽毛地区を中心に、患者とのつながりを大切にした地域医療を実践する、ちば内科クリニック。風邪や腹痛、軽い頭痛など、子どもから高齢の方まで、ご家族全員が何でも気軽に相談できる"かかりつけ医"として、信頼していただけるよう努めています。</p>
+
+        <p>胃・大腸の疾患に関しては院長が長年蓄積してきた専門性を発揮し、加えて生活習慣病など内科一般に幅広く対応しています。糖尿病と脂質異常症は院内検査が可能で、両方の検査を行っても10分以内に結果が得られ、即日で結果説明や必要な薬の処方など、迅速な診療が受けられます。</p>
+
+        <p>また市内総合病院などとの連携を密にし、他科疾患でも的確に判断。体の不調があるけれど、どの診療科に行けばよいか分からないという場合にも、スムーズな診断・治療につなげられるよう努めています。大楽毛地区は内科のクリニックが少なく、高齢者が多い地域という特性から、積極的に往診にも対応。通院が困難な人にとっても頼れる存在です。</p>
+      </div>
+
+      <!-- Right: Doctor card -->
+      <div class="doctor-card">
+        <div class="doctor-card__img-wrap">
+          <img
+            class="doctor-card__img"
+            src="https://raw.githubusercontent.com/Anne710/Chiba/11572419a915b695cc25b3998c387d3085215669/chiba-clinic-design-package/assets/images/doctor-profile.jpg"
+            alt="院長（写真はイメージです）"
+          >
+        </div>
+        <div class="doctor-card__body">
+          <p class="doctor-card__role">院長</p>
+          <h3 class="doctor-card__name">千葉 淳</h3>
+
+          <p class="doctor-card__career-label">経 歴</p>
+          <p class="doctor-card__career">
+            1993年 北海道大学医学部卒業。同大第2外科入局。<br>
+            札幌の勤医協中央病院などで消化器外科医として研修。<br>
+            その後、道内主要病院で内科医として研さんを積み、<br>
+            2014年4月 ちば内科クリニック開院。
+          </p>
+
+          <div class="doctor-card__comment">
+            <span class="doctor-card__comment-mark">"</span>
+            木曜は夜7時までの夜間診療を実施し、会社帰りでも通院しやすいと好評です。どんなことでもお気軽にご相談ください。
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Features
+============================================================ -->
+<section class="section section--soft" id="features">
+  <div class="container">
+    <p class="section-eyebrow section-eyebrow--center">診療内容</p>
+    <h2 class="section-heading section-heading--center">ちば内科クリニックの3つの特徴</h2>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-card__icon-wrap">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" fill="#2f6b3f" opacity="0.85"/>
+            <circle cx="22" cy="9" r="3" fill="#7fa36b"/>
+            <circle cx="7" cy="11" r="2.5" fill="#7fa36b" opacity="0.6"/>
+            <path d="M7 28v-6a5 5 0 0110 0v6" stroke="#2f6b3f" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M19 28v-4a4 4 0 018 0v4" stroke="#7fa36b" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <path d="M3 28v-3.5a3.5 3.5 0 017 0V28" stroke="#7fa36b" stroke-width="1.7" stroke-linecap="round" fill="none" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="feature-card__body">
+          <h3 class="feature-card__title">家族で相談できる<br>かかりつけ医</h3>
+          <p class="feature-card__desc">子どもから高齢の方まで、ご家族全員がいつでも気軽に相談できるクリニックです。「どこに行けばいいか分からない」という時も、まずはご相談ください。</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card__icon-wrap">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M9 5v9a7 7 0 0014 0V5" stroke="#2f6b3f" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+            <circle cx="22" cy="24" r="4.5" stroke="#2f6b3f" stroke-width="2" fill="none"/>
+            <circle cx="22" cy="24" r="1.6" fill="#2f6b3f"/>
+            <circle cx="9" cy="5" r="1.5" fill="#2f6b3f"/>
+            <circle cx="23" cy="5" r="1.5" fill="#2f6b3f"/>
+          </svg>
+        </div>
+        <div class="feature-card__body">
+          <h3 class="feature-card__title">胃・大腸疾患と<br>内科一般に幅広く対応</h3>
+          <p class="feature-card__desc">院長の専門性を生かした消化器疾患への対応はもちろん、生活習慣病・風邪・発熱など内科全般を診察します。院内検査で糖尿病・脂質異常症は10分以内に結果が判明します。</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card__icon-wrap">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M4 16L16 6l12 10" stroke="#2f6b3f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M7 13.5V26a1 1 0 001 1h5v-7h6v7h5a1 1 0 001-1V13.5" stroke="#2f6b3f" stroke-width="1.8" fill="none"/>
+            <rect x="13" y="9" width="6" height="5" rx="0.5" fill="#eaf3e7"/>
+            <rect x="14.5" y="7.5" width="3" height="8" rx="0.5" fill="#2f6b3f"/>
+            <rect x="11.5" y="10.5" width="9" height="3" rx="0.5" fill="#2f6b3f"/>
+          </svg>
+        </div>
+        <div class="feature-card__body">
+          <h3 class="feature-card__title">訪問診療にも<br>積極的に対応</h3>
+          <p class="feature-card__desc">通院が困難な方も、地域のかかりつけ医としてご相談いただけます。高齢者が多い大楽毛地区の特性に合わせ、在宅での医療をサポートします。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Schedule + Access + Map
+============================================================ -->
+<section class="section section--cream" id="schedule">
+  <div class="container">
+    <p class="section-eyebrow section-eyebrow--center">診療時間・アクセス</p>
+    <h2 class="section-heading section-heading--center">診療時間・交通のご案内</h2>
+
+    <div class="info-grid">
+
+      <!-- Card 1: Schedule -->
+      <div class="info-card">
+        <div class="info-card__head">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="8.5" stroke="white" stroke-width="1.6" fill="none"/>
+            <path d="M10 5.5V10.5L13.5 12.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="info-card__head-title">診療時間</span>
+        </div>
+        <div class="info-card__body">
+          <table class="schedule-table" aria-label="診療時間表">
+            <thead>
+              <tr>
+                <th scope="col">時間帯</th>
+                <th scope="col">月</th>
+                <th scope="col">火</th>
+                <th scope="col">水</th>
+                <th scope="col">木</th>
+                <th scope="col">金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>9:00–12:00</td>
+                <td><span class="circle">○</span></td>
+                <td><span class="circle">○</span></td>
+                <td><span class="circle">○</span></td>
+                <td><span class="circle">○</span></td>
+                <td><span class="circle">○</span></td>
+              </tr>
+              <tr>
+                <td>13:30–16:30</td>
+                <td><span class="circle">○</span></td>
+                <td><span class="dash">－</span></td>
+                <td><span class="circle">○</span></td>
+                <td><span class="note-mark">※1</span></td>
+                <td><span class="circle">○</span></td>
+              </tr>
+              <tr>
+                <td>14:30–16:30</td>
+                <td><span class="dash">－</span></td>
+                <td><span class="dash">－</span></td>
+                <td><span class="dash">－</span></td>
+                <td><span class="note-mark">※2</span></td>
+                <td><span class="dash">－</span></td>
+              </tr>
+              <tr>
+                <td>17:00–19:00</td>
+                <td><span class="dash">－</span></td>
+                <td><span class="dash">－</span></td>
+                <td><span class="dash">－</span></td>
+                <td><span class="circle">○</span></td>
+                <td><span class="dash">－</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="schedule-notes">
+            ※1 第1・3木曜　13:30–16:30 ／ 17:00–19:00<br>
+            ※2 第2・4木曜　14:30–16:30 ／ 17:00–19:00<br>
+            ＊木曜の午後は週により開始時間が異なります
+          </div>
+          <div>
+            <span class="schedule-closed">休診日：土・日・祝日</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Nearest Access -->
+      <div class="info-card">
+        <div class="info-card__head">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="2" y="8" width="16" height="8" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+            <path d="M5 8V5a5 5 0 0110 0v3" stroke="white" stroke-width="1.5" fill="none"/>
+            <circle cx="6" cy="14" r="1.2" fill="white"/>
+            <circle cx="14" cy="14" r="1.2" fill="white"/>
+            <path d="M2 11h16" stroke="white" stroke-width="1.2" opacity="0.6"/>
+          </svg>
+          <span class="info-card__head-title">最寄りアクセス</span>
+        </div>
+        <div class="info-card__body">
+
+          <div class="access-stop-badge">
+            <div class="access-stop-badge__name">大楽毛2丁目バス停</div>
+            <div class="access-stop-badge__bus">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1.5" y="4" width="11" height="7" rx="1.5" stroke="#7fa36b" stroke-width="1.2" fill="none"/>
+                <path d="M3.5 4V3a3.5 3.5 0 017 0v1" stroke="#7fa36b" stroke-width="1.2" fill="none"/>
+                <circle cx="4" cy="9.5" r="0.9" fill="#7fa36b"/>
+                <circle cx="10" cy="9.5" r="0.9" fill="#7fa36b"/>
+              </svg>
+              くしろバス
+            </div>
+          </div>
+
+          <div class="access-mins-big">
+            <span class="access-mins-big__num">5</span>
+            <span class="access-mins-big__unit">分（徒歩）</span>
+          </div>
+
+          <div class="access-walk">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="4" r="2" fill="#7fa36b"/>
+              <path d="M12 6l-2 6h4l2-6" stroke="#7fa36b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M8 10l-1.5 8" stroke="#7fa36b" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14 10l1.5 8" stroke="#7fa36b" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M10 16l1 2-2 3" stroke="#7fa36b" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14 16l-1 2 2 3" stroke="#7fa36b" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <div class="access-walk__arrow">
+              <div class="access-walk__line"></div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 12L12 5l8 7" stroke="#2f6b3f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M6 10.5V19a1 1 0 001 1h4v-5h2v5h4a1 1 0 001-1v-8.5" stroke="#2f6b3f" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+
+          <div class="access-address">
+            <svg width="14" height="15" viewBox="0 0 14 15" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
+              <path d="M7 1C5.07 1 3.5 2.57 3.5 4.5C3.5 7.25 7 13 7 13C7 13 10.5 7.25 10.5 4.5C10.5 2.57 8.93 1 7 1ZM7 5.75C6.31 5.75 5.75 5.19 5.75 4.5C5.75 3.81 6.31 3.25 7 3.25C7.69 3.25 8.25 3.81 8.25 4.5C8.25 5.19 7.69 5.75 7 5.75Z" fill="#7fa36b"/>
+            </svg>
+            <span>釧路市大楽毛2丁目2-27</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Map -->
+      <div class="info-card">
+        <div class="info-card__head">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 2C7.24 2 5 4.24 5 7C5 11.25 10 18 10 18C10 18 15 11.25 15 7C15 4.24 12.76 2 10 2ZM10 8.75C9.09 8.75 8.35 8.01 8.35 7.1C8.35 6.19 9.09 5.45 10 5.45C10.91 5.45 11.65 6.19 11.65 7.1C11.65 8.01 10.91 8.75 10 8.75Z" fill="white"/>
+          </svg>
+          <span class="info-card__head-title">アクセスマップ</span>
+        </div>
+        <div class="map-img-wrap">
+          <img
+            src="https://raw.githubusercontent.com/Anne710/Chiba/11572419a915b695cc25b3998c387d3085215669/chiba-clinic-design-package/assets/images/access-map.png"
+            alt="ちば内科クリニック周辺地図"
+          >
+        </div>
+        <div class="info-card__body">
+          <p class="map-note">
+            ※ Google Mapsのマーカーは、高解像度地図で多少のズレが生じる場合があります。あくまで目安としてご利用ください。実際の位置は直接施設へご確認願います。
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /.info-grid -->
+  </div>
+</section>
+
+<!-- ============================================================
+     Home Visit Section
+============================================================ -->
+<section class="homevisit" id="homevisit">
+  <div class="container">
+    <div class="homevisit__inner">
+
+      <div class="homevisit__icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <path d="M6 22L22 9l16 13" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M9 19.5V37a2 2 0 002 2h9v-9h4v9h9a2 2 0 002-2V19.5" stroke="white" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+          <!-- cross on house -->
+          <rect x="18.5" y="14" width="7" height="2.5" rx="0.8" fill="white" opacity="0.9"/>
+          <rect x="20.75" y="11.5" width="2.5" height="7" rx="0.8" fill="white" opacity="0.9"/>
+        </svg>
+      </div>
+
+      <div class="homevisit__body">
+        <p class="homevisit__eyebrow">訪問診療</p>
+        <h2 class="homevisit__heading">通院が困難な方にも、<br>地域のかかりつけ医として対応します</h2>
+        <p class="homevisit__desc">大楽毛地区は内科クリニックが少なく、高齢者の多い地域です。自力での通院が難しくなった場合でも、引き続き医療を受けていただけるよう、積極的に往診に対応しています。ご本人・ご家族からのご相談をお待ちしております。</p>
+      </div>
+
+      <div class="homevisit__cta">
+        <a href="tel:0154646650" class="btn btn--white-outline">
+          お電話でご相談<br>
+          <span style="font-size:18px; letter-spacing:0.05em;">0154-64-6650</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Footer
+============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+
+      <div>
+        <h2 class="footer__clinic-name">ちば内科クリニック</h2>
+        <p class="footer__dept">内科</p>
+        <p class="footer__contact-label">お電話でのお問い合わせ</p>
+        <a href="tel:0154646650" class="footer__contact-phone">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4.5 2.5C4.5 2.5 2 2.5 2 5C2 12.18 7.82 18 15 18C17.5 18 17.5 15.5 17.5 15.5L14.5 12.5C14.5 12.5 13.5 13.5 12 12C10.5 10.5 9.5 9 9.5 9C8 7.5 9 6.5 9 6.5L6 3.5L4.5 2.5Z" fill="white" opacity="0.8"/>
+          </svg>
+          0154-64-6650
+        </a>
+      </div>
+
+      <div class="footer__info">
+        <strong>住所</strong>　釧路市大楽毛2丁目2-27<br>
+        <strong>診療科</strong>　内科<br>
+        <strong>休診日</strong>　土曜・日曜・祝日<br>
+        <strong>木曜夜間</strong>　17:00〜19:00（夜間診療）<br>
+        <strong>アクセス</strong>　くしろバス大楽毛2丁目停留所より徒歩5分<br>
+        <span style="opacity:0.6;font-size:12px;">※ 2025年10月現在の情報です</span>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2025 ちば内科クリニック. All rights reserved.</span>
+      <span>釧路市大楽毛2丁目2-27</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
