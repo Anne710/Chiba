@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-labelledby="title desc">
+  <title id="title">CHIBA Naika logo</title>
+  <desc id="desc">Green circular leaf logo with CHIBA Naika text.</desc>
+  <defs>
+    <linearGradient id="ringGradient" x1="20" y1="85" x2="390" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#80c41c"/>
+      <stop offset="0.58" stop-color="#9bd141"/>
+      <stop offset="1" stop-color="#eef7df"/>
+    </linearGradient>
+    <linearGradient id="leafGradient" x1="93" y1="247" x2="352" y2="318" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8fd020"/>
+      <stop offset="0.78" stop-color="#7fc316"/>
+      <stop offset="1" stop-color="#dcefc0"/>
+    </linearGradient>
+  </defs>
+  <path d="M352 360C291 402 210 410 139 382C68 354 24 292 20 222C16 151 52 84 115 47C178 9 258 6 322 39" fill="none" stroke="url(#ringGradient)" stroke-width="32" stroke-linecap="round"/>
+  <text x="123" y="154" fill="#111318" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" letter-spacing="2">CHIBA</text>
+  <text x="125" y="220" fill="#111318" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">Naika</text>
+  <path d="M236 324C250 282 282 252 329 236C359 226 389 226 405 230C391 263 360 295 318 309C287 320 258 320 236 324Z" fill="url(#leafGradient)"/>
+  <path d="M111 272C134 280 158 296 176 320C155 323 128 319 103 306C83 296 69 281 62 266C77 263 94 265 111 272Z" fill="url(#leafGradient)"/>
+  <path d="M225 392C224 352 239 315 266 285C239 304 216 344 208 392Z" fill="#111318"/>
+  <path d="M205 392C201 356 181 324 151 303C177 334 190 365 190 392Z" fill="#111318"/>
+</svg>
